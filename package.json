@@ -1,0 +1,25 @@
+{
+  "name": "nodehbs",
+  "version": "1.0.0",
+  "description": "Hi!",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js --exec babel-node "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.8.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
