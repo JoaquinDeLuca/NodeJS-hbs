@@ -1,1 +1,11 @@
-<p>Edit the oage</p>
+<Form action="/edit/{{task._id}}" method="POST">
+  <input type="text" name="title" placeholder="Title" value="{{task.title}}" />
+
+  <textarea
+    name="description"
+    row="3"
+    placeholder="Add a description"
+  >{{task.description}}</textarea>
+
+  <button>Update</button>
+</Form>
