@@ -1,35 +1,21 @@
 import { Router } from "express";
-import Task from '../models/Task'
+
+import {
+  all,
+  createTask,
+  deleteTask,
+  renderTaskEdit,
+  taskEdit,
+  toggledone,
+} from "../controllers/taskControllers";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-
-  const tasks = await Task.find().lean()
-
-  res.render("home",{tasks: tasks});
-});
-
-router.post("/tasks/add", async (req, res) => {
-
-  try{
-    const task = Task(req.body);
-  
-    await task.save();
-  
-    res.redirect('/')
-
-  }catch(error){
-    console.log(error);
-  }
-});
-
-router.get("/about", (req, res) => {
-  res.render("about");
-});
-
-router.get("/edit", (req, res) => {
-  res.render("edit");
-});
+router.get("/", all); // obtener todas las tareas
+router.post("/tasks/add", createTask); // crear tareas
+router.get("/task/:id/toggledone", toggledone);
+router.get("/task/:id/edit", renderTaskEdit);
+router.post("/task/:id/edit", taskEdit); // Para actulizar task seria method put
+router.get("/task/:id/delete", deleteTask); // Para borrar una task seria method delete
 
 export default router;
