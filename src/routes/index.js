@@ -1,57 +1,21 @@
 import { Router } from "express";
-import Task from "../models/Task";
+
+import {
+  all,
+  createTask,
+  deleteTask,
+  renderTaskEdit,
+  taskEdit,
+  toggledone,
+} from "../controllers/taskControllers";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  const tasks = await Task.find().lean();
-
-  res.render("home", { tasks: tasks });
-});
-
-router.post("/tasks/add", async (req, res) => {
-  try {
-    const task = Task(req.body);
-
-    await task.save();
-
-    res.redirect("/");
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-router.get("/about", (req, res) => {
-  res.render("about");
-});
-
-router.get("/edit/:id", async (req, res) => {
-  try {
-    const task = await Task.findById(req.params.id).lean();
-
-    res.render("edit", { task });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// Para actulizar task seria method put
-router.post("/edit/:id", async (req, res) => {
-  const { id } = req.params;
-
-  await Task.findByIdAndUpdate(id, req.body);
-
-  res.redirect("/");
-});
-
-// Para borrar una task seria method delete
-router.get("/delete/:id", async (req, res) => {
-
-  const { id } = req.params;
-
-  await Task.findByIdAndDelete(id);
-
-  res.redirect('/')
-});
+router.get("/", all); // obtener todas las tareas
+router.post("/tasks/add", createTask); // crear tareas
+router.get("/task/:id/toggledone", toggledone);
+router.get("/task/:id/edit", renderTaskEdit);
+router.post("/task/:id/edit", taskEdit); // Para actulizar task seria method put
+router.get("/task/:id/delete", deleteTask); // Para borrar una task seria method delete
 
 export default router;
