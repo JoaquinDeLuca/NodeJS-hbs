@@ -16,7 +16,8 @@
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "mongoose": "^6.8.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "@babel/runtime": "^7.17.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
@@ -24,7 +25,7 @@
     "@babel/node": "^7.20.7",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
-    "ncp": "^2.0.0",
-    "@babel/runtime": "^7.17.8"
+    "ncp": "^2.0.0"
+ 
   }
 }
