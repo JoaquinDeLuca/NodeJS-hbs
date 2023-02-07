@@ -1,4 +1,5 @@
-# NodeJS, Utilizando Handlebars
+# Task
+Pequeño proyecto aprendiendo a usar el motor de platilla Handlebars
 ![Home](https://user-images.githubusercontent.com/110680187/215598637-0d9eadcf-3be2-4ca6-952c-e6c9a324f241.png)
 
 ## Ejemplo en vivo
